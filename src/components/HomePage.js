@@ -6,7 +6,7 @@ import axios from "axios";
 
 const provider = getDefaultProvider("rinkeby", { alchemy: config.alchemyKey });
 const contract = new Contract(
-  "0xFb4B52af10D35A2c4486B1D81Cf4069A122bB5D4",
+  "0x9e0B7eeb9f284C5DA18fA1D65714583028c7e9C0",
   abi,
   provider
 );
@@ -60,7 +60,7 @@ export const HomePage = () => {
 
   const handlePurchase = async () => {
     const { ethereum } = window;
-    if (typeof ethereum == "undefined") alert("Metamask is not detected");
+    if (typeof ethereum == "undefined") alert("Metamask not detected");
 
     // Prompts Metamask to connect
     setPurchaseState({ state: "PENDING_METAMASK" });
@@ -74,7 +74,7 @@ export const HomePage = () => {
 
     // Create the contract instance
     const contract = new Contract(
-      "0xFb4B52af10D35A2c4486B1D81Cf4069A122bB5D4",
+      "0x9e0B7eeb9f284C5DA18fA1D65714583028c7e9C0",
       abi,
       signer
     );
@@ -91,11 +91,11 @@ export const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-blue-300">
+    <div className="min-h-screen bg-pink-300">
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div className="text-gray-800 text-6xl pt-28 pb-10">Markvelous Robots</div>
+        <div className="text-gray-700 text-6xl pt-20 pb-20">Markobots</div>
         {mintedNftState.state === "PENDING" && (
-          <div className="text-xl text-white">LOADING...</div>
+          <div className="text-xl text-black">LOADING...</div>
         )}
         {mintedNftState.state === "SUCCESS" && (
           <div className="grid grid-cols-3 gap-4">
@@ -121,7 +121,7 @@ export const HomePage = () => {
             type="button"
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
           >
-            I want one!
+            Mint me a Markobot!
           </button>
         </div>
       </div>
@@ -168,11 +168,11 @@ export const HomePage = () => {
                     id="modal-title"
                   >
                     {purchaseState.state === "PENDING_METAMASK" &&
-                      "Connecting Metamask..."}
+                      "Connecting with Metamask ..."}
                     {purchaseState.state === "PENDING_SIGNER" &&
-                      "Waiting for Signed Transaction"}
+                      "Waiting for transaction to be signed ..."}
                     {purchaseState.state === "PENDING_CONFIRMAION" &&
-                      "Waiting for Block Confirmation"}
+                      "Waiting for block confirmation ..."}
                   </h3>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
