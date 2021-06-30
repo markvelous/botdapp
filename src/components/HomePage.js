@@ -89,25 +89,37 @@ export const HomePage = () => {
     // Reload the Robots
     await loadRobotsData();
   };
-
+  
   return (
     <div className="min-h-screen bg-pink-300">
-      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div className="text-gray-700 text-6xl pt-20 pb-20">Markobots</div>
+       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div className="text-gray-800 text-6xl pt-20">Marköbots</div>
+        <div className="text-gray-600 text-1x1">
+          Truly unique NFT for your awesome collection
+        </div>
+        <div className="mt-8 mb-16">
+          <button
+            onClick={handlePurchase}
+            type="button"
+            className="inline-flex items-center px-16 py-3 border border-transparent text-base font-large elevation-15 rounded-md text-white bg-green-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+          >
+            Mint me a Marköbot!
+          </button>
+        </div>
         {mintedNftState.state === "PENDING" && (
-          <div className="text-xl text-black">LOADING...</div>
+          <div className="text-xl text-black">loading...</div>
         )}
         {mintedNftState.state === "SUCCESS" && (
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-4 gap-4">
             {mintedNftState.data.map(
               ({ id, image, name, description, owner }) => {
                 return (
-                  <div key={id} className="bg-white rounded p-2">
-                    <img src={image} className="mx-auto p-4" alt={name} />
+                  <div key={id} className="bg-white rounded p-2 elevation-20">
+                    <img src={image} className="mx-auto p-3" alt={name} />
                     <div className="text-xl">{name}</div>
-                    <div className="">{description}</div>
+                    <div className="text-red-600">{description}</div>
                     <hr className="my-4" />
-                    <div className="text-left text-sm">Owned By:</div>
+                    <div className="text-left text-s">Exlusively Owned By:</div>
                     <div className="text-left text-xs">{owner}</div>
                   </div>
                 );
@@ -115,15 +127,6 @@ export const HomePage = () => {
             )}
           </div>
         )}
-        <div className="mt-12">
-          <button
-            onClick={handlePurchase}
-            type="button"
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-          >
-            Mint me a Markobot!
-          </button>
-        </div>
       </div>
       {modalVisible && (
         <div
@@ -140,9 +143,7 @@ export const HomePage = () => {
             <span
               className="hidden sm:inline-block sm:align-middle sm:h-screen"
               aria-hidden="true"
-            >
-              ​
-            </span>
+            ></span>
             <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
               <div>
                 <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100">

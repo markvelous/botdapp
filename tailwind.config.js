@@ -7,5 +7,8 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  //Install elevations to enhance image rendering
+  plugins: [
+    require('tailwindcss-elevation')(['responsive']),
+  ],
 }
