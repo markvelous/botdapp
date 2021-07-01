@@ -3,7 +3,6 @@ import { Contract, getDefaultProvider, providers, utils } from "ethers";
 import { config } from "../config";
 import abi from "../fixtures/abi.json";
 import axios from "axios";
-import background from "./img/circuit-board.svg";
 
 const provider = getDefaultProvider("rinkeby", { alchemy: config.alchemyKey });
 const contract = new Contract(
@@ -92,8 +91,8 @@ export const HomePage = () => {
   };
  
    return (
-    <div style={{ backgroundImage: `url(${background})` }}>
-           <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-pink-300">
+       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div className="text-gray-800 text-6xl pt-20">Marköbots</div>
         <div className="text-gray-600 text-1x1">
           Truly unique NFT for your awesome collection
@@ -121,13 +120,13 @@ export const HomePage = () => {
                     <div className="text-red-600">{description}</div>
                     <hr className="my-4" />
                     <div className="text-left text-s">Exlusively Owned By:</div>
-                    <div className="text-left text-xs">{owner}</div>
+                    <div className="truncate text-left text-xs">{owner}</div>
                   </div>
                 );
               }
             )}
           </div>
-        )} <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        )}
       </div>
       {modalVisible && (
         <div
