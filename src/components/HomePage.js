@@ -3,6 +3,7 @@ import { Contract, getDefaultProvider, providers, utils } from "ethers";
 import { config } from "../config";
 import abi from "../fixtures/abi.json";
 import axios from "axios";
+//background svg
 import background from "./img/circuit-board-green.svg";
 
 const provider = getDefaultProvider("rinkeby", { alchemy: config.alchemyKey });
@@ -59,6 +60,14 @@ export const HomePage = () => {
     loadRobotsData();
   }, []);
 
+  /*
+  useEffect(() => {
+    document.addEventListener("mousedown", () => {
+        window.location.reload();
+    });
+  });
+  */
+ 
   const handlePurchase = async () => {
     const { ethereum } = window;
     if (typeof ethereum == "undefined") alert("Metamask not detected");
@@ -134,8 +143,7 @@ export const HomePage = () => {
           className="fixed z-10 inset-0 overflow-y-auto"
           aria-labelledby="modal-title"
           role="dialog"
-          aria-modal="true"
-        >
+          aria-modal="true">  
           <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <div
               className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
