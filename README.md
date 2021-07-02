@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 To fulfil the Blockchain Beginner course requirement for SGBT4 by P7210027 Mark Tan
+
+There is a ERC721 contract generator folder for replicating the Markobots Soldiity contract on Rinkeby Testnet
+
+Set up a .env file with the following lines:
+    ALCHEMY_KEY=<Alchemy Rinkeby API>
+
+[Markobot Homepage](./src/components/img/markobot_home.png)
 ## Available Scripts
 
 In the project directory, you can run:
