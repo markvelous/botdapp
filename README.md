@@ -11,7 +11,7 @@ Set up a .env file with the following lines:
 
 Snapshot of Markobot Homepage:
 
-.\src\components\img\markobot_home.png
+![github-small](src/components/img/markobot_home.png)
 
 ## Available Scripts
 
