@@ -7,7 +7,7 @@ There is a ERC721 contract generator folder for replicating the Markobots Soldii
 
 Set up a .env file with the following lines:
     
-    ALCHEMY_KEY="<"Alchemy Rinkeby API"
+    ALCHEMY_KEY="Alchemy Rinkeby API"
 
 [Markobot Homepage](./src/components/img/markobot_home.png)
 ## Available Scripts
