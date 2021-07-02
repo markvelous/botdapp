@@ -6,7 +6,8 @@ To fulfil the Blockchain Beginner course requirement for SGBT4 by P7210027 Mark 
 There is a ERC721 contract generator folder for replicating the Markobots Soldiity contract on Rinkeby Testnet
 
 Set up a .env file with the following lines:
-    ALCHEMY_KEY=<Alchemy Rinkeby API>
+    
+    ALCHEMY_KEY="<"Alchemy Rinkeby API"
 
 [Markobot Homepage](./src/components/img/markobot_home.png)
 ## Available Scripts
