@@ -143,7 +143,11 @@ export const HomePage = () => {
           className="fixed z-10 inset-0 overflow-y-auto"
           aria-labelledby="modal-title"
           role="dialog"
-          aria-modal="true">  
+          aria-modal="true"> 
+           <div className="modal-backdrop"
+              onClick={() => { // close modal when outside of modal is clicked
+                window.location.reload(false); 
+              }}>
           <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <div
               className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
@@ -198,6 +202,7 @@ export const HomePage = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       )}
     </div>
