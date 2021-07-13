@@ -5,10 +5,11 @@ import abi from "../fixtures/abi.json";
 import axios from "axios";
 //background svg
 import background from "./img/circuit-board-green.svg";
+// import { id } from "ethers/lib/utils";
 
 const provider = getDefaultProvider("rinkeby", { alchemy: config.alchemyKey });
 const contract = new Contract(
-  "0x9e0B7eeb9f284C5DA18fA1D65714583028c7e9C0",
+  "0x108f24eb4953B96117374878E07cCE918992Ea0C",
   abi,
   provider
 );
@@ -84,7 +85,7 @@ export const HomePage = () => {
 
     // Create the contract instance
     const contract = new Contract(
-      "0x9e0B7eeb9f284C5DA18fA1D65714583028c7e9C0",
+      "0x108f24eb4953B96117374878E07cCE918992Ea0C",
       abi,
       signer
     );
@@ -191,11 +192,11 @@ export const HomePage = () => {
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
                       {purchaseState.state === "PENDING_METAMASK" &&
-                        "Allow Metamask to connect to this application in the extension."}
+                        "Allow Metamask to connect to this application in the extension. Click outside the box anytime if you wish to stop the process."}
                       {purchaseState.state === "PENDING_SIGNER" &&
-                        "Approve the purchase transaction within the Metamask extension"}
+                        "Approve the purchase transaction within the Metamask extension. Click outside the box anytime if you wish to stop the process."}
                       {purchaseState.state === "PENDING_CONFIRMAION" &&
-                        "Transaction has been sent to the blockchain. Please wait while the transaction is being confirmed."}
+                        "Transaction has been sent to the blockchain. Please wait while the transaction is being confirmed. Click outside the box anytime if you wish to stop the process."}
                     </p>
                   </div>
                 </div>

@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 To fulfil the Blockchain Beginner course requirement for SGBT4 by P7210027 Mark Tan
 
 There is a ERC721 contract generator folder for replicating the Markobots Soldiity contract on Rinkeby Testnet
