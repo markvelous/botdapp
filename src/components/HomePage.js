@@ -61,14 +61,6 @@ export const HomePage = () => {
     loadRobotsData();
   }, []);
 
-  /*
-  useEffect(() => {
-    document.addEventListener("mousedown", () => {
-        window.location.reload();
-    });
-  });
-  */
- 
   const handlePurchase = async () => {
     const { ethereum } = window;
     if (typeof ethereum == "undefined") alert("Metamask not detected");
@@ -100,13 +92,13 @@ export const HomePage = () => {
     // Reload the Robots
     await loadRobotsData();
   };
- 
-   return (
+
+  return (
     <div style={{ backgroundImage: `url(${background})` }}>
-           <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div className="text-gray-800 text-6xl pt-20">Marköbots</div>
-        <div className="text-gray-600 text-1x1">
-          Truly unique NFT for your awesome collection
+        <div className="text-gray-600 text-2xl">
+          Truly unique NFTs for your awesome collection
         </div>
         <div className="mt-8 mb-16">
           <button
@@ -121,7 +113,7 @@ export const HomePage = () => {
           <div className="text-xl text-black">loading...</div>
         )}
         {mintedNftState.state === "SUCCESS" && (
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 gap-12">
             {mintedNftState.data.map(
               ({ id, image, name, description, owner }) => {
                 return (
@@ -130,80 +122,87 @@ export const HomePage = () => {
                     <div className="text-xl">{name}</div>
                     <div className="text-red-600">{description}</div>
                     <hr className="my-4" />
-                    <div className="text-left text-s">Exlusively Owned By:</div>
-                    <div className="text-left text-xs">{owner}</div>
+                    <div className="text-left text-s">
+                      Exclusively Owned By:
+                    </div>
+                    <div className="truncate text-left text-xs">{owner}</div>
                   </div>
                 );
               }
             )}
           </div>
-        )} <br></br>
+        )}{" "}
+        <br></br>
       </div>
       {modalVisible && (
         <div
           className="fixed z-10 inset-0 overflow-y-auto"
           aria-labelledby="modal-title"
           role="dialog"
-          aria-modal="true"> 
-           <div className="modal-backdrop"
-              onClick={() => { // close modal when outside of modal is clicked
-                window.location.reload(false); 
-              }}>
-          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div
-              className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
-              aria-hidden="true"
-            />
-            <span
-              className="hidden sm:inline-block sm:align-middle sm:h-screen"
-              aria-hidden="true"
-            ></span>
-            <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
-              <div>
-                <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100">
-                  <svg
-                    className="h-6 w-6 text-yellow-600"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                    />
-                  </svg>
-                </div>
-                <div className="mt-3 text-center sm:mt-5">
-                  <h3
-                    className="text-lg leading-6 font-medium text-gray-900"
-                    id="modal-title"
-                  >
-                    {purchaseState.state === "PENDING_METAMASK" &&
-                      "Connecting with Metamask ..."}
-                    {purchaseState.state === "PENDING_SIGNER" &&
-                      "Waiting for transaction to be signed ..."}
-                    {purchaseState.state === "PENDING_CONFIRMAION" &&
-                      "Waiting for block confirmation ..."}
-                  </h3>
-                  <div className="mt-2">
-                    <p className="text-sm text-gray-500">
+          aria-modal="true"
+        >
+          <div
+            className="modal-backdrop"
+            onClick={() => {
+              // close modal when outside of modal is clicked
+              window.location.reload(false);
+            }}
+          >
+            <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+              <div
+                className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+                aria-hidden="true"
+              />
+              <span
+                className="hidden sm:inline-block sm:align-middle sm:h-screen"
+                aria-hidden="true"
+              ></span>
+              <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
+                <div>
+                  <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100">
+                    <svg
+                      className="h-6 w-6 text-yellow-600"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                      />
+                    </svg>
+                  </div>
+                  <div className="mt-3 text-center sm:mt-5">
+                    <h3
+                      className="text-lg leading-6 font-medium text-gray-900"
+                      id="modal-title"
+                    >
                       {purchaseState.state === "PENDING_METAMASK" &&
-                        "Allow Metamask to connect to this application in the extension. Click outside the box anytime if you wish to stop the process."}
+                        "Connecting with Metamask ..."}
                       {purchaseState.state === "PENDING_SIGNER" &&
-                        "Approve the purchase transaction within the Metamask extension. Click outside the box anytime if you wish to stop the process."}
+                        "Waiting for transaction to be signed ..."}
                       {purchaseState.state === "PENDING_CONFIRMAION" &&
-                        "Transaction has been sent to the blockchain. Please wait while the transaction is being confirmed. Click outside the box anytime if you wish to stop the process."}
-                    </p>
+                        "Waiting for block confirmation ..."}
+                    </h3>
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-500">
+                        {purchaseState.state === "PENDING_METAMASK" &&
+                          "Allow Metamask to connect to this application in the extension. Click outside the box anytime if you wish to stop the process."}
+                        {purchaseState.state === "PENDING_SIGNER" &&
+                          "Approve the purchase transaction within the Metamask extension. Click outside the box anytime if you wish to stop the process."}
+                        {purchaseState.state === "PENDING_CONFIRMAION" &&
+                          "Transaction has been sent to the blockchain. Please wait while the transaction is being confirmed. Click outside the box anytime if you wish to stop the process."}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
         </div>
       )}
     </div>
