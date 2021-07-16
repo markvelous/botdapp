@@ -4,27 +4,30 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 To fulfil the Blockchain Beginner course requirement for SGBT4 by P7210027 Mark Tan
 
-There is a ERC721 contract generator folder for replicating the Markobots Soldiity contract on Rinkeby Testnet
-
-Set up a .env file with the following lines:
-    
-    ALCHEMY_KEY="Alchemy Rinkeby API"
-
 Snapshot of Markobot Homepage:
 
 ![github-small](src/components/img/markobot_home.png)
 
-## Available Scripts
 
-In the project directory, you can run:
+Set up a .env file with the following lines (you will require an Alchemy account):
+    
+    ALCHEMY_KEY="Alchemy Rinkeby API"
+
+
+An [ERC721 contract generator](https://github.com/markvelous/Markobots-ERC721) is available to recreate new Markobots contract (after the 11th unique Markobots) on the Rinkeby Testnet
+
+## Initiate the app
+
+From the project directory: 
 
 ### `yarn start`
 
-To run the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view in the browser
+Run the app in the development mode
+
+View in the browser at [http://localhost:3000](http://localhost:3000)
 
 If yarn fails to execute, run 
-npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9 
+### npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9 
 
 The page will automatically reload when edits are made
 
