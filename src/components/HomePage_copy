@@ -5,7 +5,7 @@ import abi from "../fixtures/abi.json";
 import axios from "axios";
 
 //background svg
-import background from "./img/circuit.svg";
+import background from "./img/hex.svg";
 
 const provider = getDefaultProvider("rinkeby", { alchemy: config.alchemyKey });
 const contract = new Contract(
@@ -18,7 +18,20 @@ const formatIpfsUrl = (url) => {
   return url.replace(/ipfs:\/\//g, "https://cloudflare-ipfs.com/");
 };
 
-export const HomePage = () => {
+export const HomePage = () => {  
+
+  /*
+  // adding constructor to enable 'this' for inline JSX
+  class Toggle extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        id: 7
+      }
+    }
+  }
+  */
+
   const [mintedNftState, setMintedNftState] = useState({
     state: "UNINITIALIZED",
   });
@@ -34,8 +47,11 @@ export const HomePage = () => {
     setMintedNftState({
       state: "PENDING",
     });
+  
     const totalSupply = await contract.totalSupply();
+  
     const ids = [...Array(totalSupply.toNumber()).keys()];
+
     const deferredData = ids.map(async (id) => {
       const ipfsUri = await contract.tokenURI(id);
       const owner = await contract.ownerOf(id);
@@ -50,13 +66,15 @@ export const HomePage = () => {
         owner,
       };
     });
+
     const data = await Promise.all(deferredData);
+  
     setMintedNftState({
       state: "SUCCESS",
       data,
     });
   };
-
+  
   useEffect(() => {
     loadRobotsData();
   }, []);
@@ -100,21 +118,33 @@ export const HomePage = () => {
         <div className="text-gray-600 text-2xl">
           Truly unique NFTs for your awesome collection
         </div>
+        
         <div className="mt-8 mb-16">
-          <button
-            id="BTS"
-            onClick={handlePurchase}
+          <button 
             type="button"
             className="inline-flex items-center px-16 py-3 border border-transparent text-base font-large elevation-15 rounded-md text-white bg-green-600
-               hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+               hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" 
+            onClick={handlePurchase}
           >
             Mint me a Marköbot!
+          </button>
+        </div>
+
+        <div className="mt-8 mb-16">
+          <button
+            type="button"
+            className="items-center px-16 py-3 border border-transparent text-base font-large elevation-15 rounded-md text-gray-200 bg-gray-400 hidden"
+            disabled='true'
+          >
+            All Marköbots have been minted!<br/>
+            Watch this space for more!
           </button>
         </div>
 
         {mintedNftState.state === "PENDING" && (
           <div className="text-xl text-black">loading...</div>
         )}
+        
         {mintedNftState.state === "SUCCESS" && (
           <div className="grid grid-cols-4 gap-12">
             {mintedNftState.data.map(
@@ -137,6 +167,7 @@ export const HomePage = () => {
         )}{" "}
         <br></br>
       </div>
+
       {modalVisible && (
         <div
           className="fixed z-10 inset-0 overflow-y-auto"
@@ -194,11 +225,11 @@ export const HomePage = () => {
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
                         {purchaseState.state === "PENDING_METAMASK" &&
-                          "Allow Metamask to connect to this application in the extension. Click outside the box anytime if you wish to stop the process."}
+                          "Allow Metamask to connect to this application in the extension. Click anywhere if you wish to stop the process."}
                         {purchaseState.state === "PENDING_SIGNER" &&
-                          "Approve the purchase transaction within the Metamask extension. Click outside the box anytime if you wish to stop the process."}
+                          "Approve the purchase transaction within the Metamask extension. Click anywhere if you wish to stop the process."}
                         {purchaseState.state === "PENDING_CONFIRMAION" &&
-                          "Transaction has been sent to the blockchain. Please wait while the transaction is being confirmed. Click outside the box anytime if you wish to stop the process."}
+                          "Transaction has been sent to the blockchain. Please wait while the transaction is being confirmed. Click anywhere if you wish to stop the process."}
                       </p>
                     </div>
                   </div>

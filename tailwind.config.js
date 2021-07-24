@@ -9,8 +9,10 @@ module.exports = {
       opacity: ['disabled'],
     }  
   },
-  //Install elevations to enhance image rendering
+  // installed elevations to enhance image rendering
+  // installed text-shadow for better contrast against svg background (diasbled as it's not working well)
   plugins: [
     require('tailwindcss-elevation')(['responsive']),
+    require('tailwindcss-textshadow')
   ],
 }

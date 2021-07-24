@@ -20,18 +20,6 @@ const formatIpfsUrl = (url) => {
 
 export const HomePage = () => {  
 
-  /*
-  // adding constructor to enable 'this' for inline JSX
-  class Toggle extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        id: 7
-      }
-    }
-  }
-  */
-
   const [mintedNftState, setMintedNftState] = useState({
     state: "UNINITIALIZED",
   });
@@ -114,10 +102,14 @@ export const HomePage = () => {
   return (
     <div style={{ backgroundImage: `url(${background})` }}>
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div className="text-gray-800 text-6xl pt-20">Marköbots</div>
-        <div className="text-gray-600 text-2xl">
-          Truly unique NFTs for your awesome collection
+        <div className="text-yellow-500 font-bold text-8xl pt-10">
+            Marköbots
         </div>
+
+      <div className="text-gray-600 text-2xl pt-3"
+        >
+        Truly unique NFTs for your awesome collection
+      </div>
         
         <div className="mt-8 mb-16">
           <button 
