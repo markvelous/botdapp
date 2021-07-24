@@ -67,6 +67,8 @@ export const HomePage = () => {
     loadRobotsData();
   }, []);
 
+  const [reachMax] = React.useState(true);
+
   const handlePurchase = async () => {
     const { ethereum } = window;
     if (typeof ethereum == "undefined") alert("Metamask not detected");
@@ -110,7 +112,8 @@ export const HomePage = () => {
         >
         Truly unique NFTs for your awesome collection
       </div>
-        
+      
+      <div>{(reachMax && 
         <div className="mt-8 mb-16">
           <button 
             type="button"
@@ -120,18 +123,19 @@ export const HomePage = () => {
           >
             Mint me a Marköbot!
           </button>
-        </div>
-
-        <div className="mt-8 mb-16">
+        </div>)
+        ||
+        (<div className="mt-8 mb-16">
           <button
             type="button"
-            className="items-center px-16 py-3 border border-transparent text-base font-large elevation-15 rounded-md text-gray-200 bg-gray-400 hidden"
+            className="items-center px-16 py-3 border border-transparent text-base font-large elevation-15 rounded-md text-gray-200 bg-gray-400"
             disabled='true'
           >
             All Marköbots have been minted!<br/>
             Watch this space for more!
           </button>
-        </div>
+        </div>)}
+      </div>
 
         {mintedNftState.state === "PENDING" && (
           <div className="text-xl text-black">loading...</div>
