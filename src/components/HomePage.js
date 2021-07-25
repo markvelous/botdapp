@@ -20,10 +20,10 @@ const formatIpfsUrl = (url) => {
 
 /*
 // unsure how to set this up to enable the Boolean operation in line 80
-class Button extends React.Component {
+class ControlButton extends React.Component {
   constructor(id) {
     super(id);
-    id = 7; 
+    this.id = 7;
   }
 }
 */

@@ -31,6 +31,13 @@ If yarn fails to execute, run
 
 The page will automatically reload when edits are made
 
+Add the following dependencies:
+
+### npm install tailwindcss-elevation
+[Tailwindcss-elevation](https://www.npmjs.com/package/tailwindcss-elevation)
+
+### yarn add tailwindcss-textshadow --dev
+[Tailwindcss-textshadow](https://www.npmjs.com/package/tailwindcss-textshadow)
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode
