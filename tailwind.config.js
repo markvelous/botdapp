@@ -13,6 +13,6 @@ module.exports = {
   // installed text-shadow for better contrast against svg background (diasbled as it's not working well)
   plugins: [
     require('tailwindcss-elevation')(['responsive']),
-    require('tailwindcss-textshadow')
+    require('tailwindcss-textshadow'),
   ],
 }

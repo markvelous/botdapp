@@ -18,6 +18,16 @@ const formatIpfsUrl = (url) => {
   return url.replace(/ipfs:\/\//g, "https://cloudflare-ipfs.com/");
 };
 
+/*
+// unsure how to set this up to enable the Boolean operation in line 80
+class Button extends React.Component {
+  constructor(id) {
+    super(id);
+    id = 7; 
+  }
+}
+*/
+
 export const HomePage = () => {  
 
   const [mintedNftState, setMintedNftState] = useState({
@@ -67,7 +77,8 @@ export const HomePage = () => {
     loadRobotsData();
   }, []);
 
-  const [reachMax] = React.useState(true);
+  // Boolean toggle to disable minting button at a designated NFT ID (lines 127-149)
+  const [reachMax] = React.useState( contract.ownerOf.id === undefined );
 
   const handlePurchase = async () => {
     const { ethereum } = window;
@@ -104,11 +115,11 @@ export const HomePage = () => {
   return (
     <div style={{ backgroundImage: `url(${background})` }}>
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div className="text-yellow-500 font-bold text-8xl pt-10">
+        <div className="text-yellow-500 font-bold text-8xl pt-10 text-shadow-lg">
             Marköbots
         </div>
 
-      <div className="text-gray-600 text-2xl pt-3"
+      <div className="text-gray-600 text-2xl pt-3 text-shadow-sm"
         >
         Truly unique NFTs for your awesome collection
       </div>
