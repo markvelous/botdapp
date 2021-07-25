@@ -18,16 +18,6 @@ const formatIpfsUrl = (url) => {
   return url.replace(/ipfs:\/\//g, "https://cloudflare-ipfs.com/");
 };
 
-/*
-// unsure how to set this up to enable the Boolean operation in line 80
-class ControlButton extends React.Component {
-  constructor(id) {
-    super(id);
-    this.id = 7;
-  }
-}
-*/
-
 export const HomePage = () => {  
 
   const [mintedNftState, setMintedNftState] = useState({
@@ -78,7 +68,7 @@ export const HomePage = () => {
   }, []);
 
   // Boolean toggle to disable minting button at a designated NFT ID (lines 127-149)
-  const [reachMax] = React.useState( contract.ownerOf.id === undefined );
+  const reachMax = mintedNftState.state === "SUCCESS" && mintedNftState.data.length <= 8;
 
   const handlePurchase = async () => {
     const { ethereum } = window;
