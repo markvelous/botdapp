@@ -68,7 +68,7 @@ export const HomePage = () => {
   }, []);
 
   // Boolean toggle to disable minting button at a designated NFT ID (lines 127-149)
-  const reachMax = mintedNftState.state === "SUCCESS" && mintedNftState.data.length <= 8;
+  const reachMax = mintedNftState.state === "SUCCESS" && mintedNftState.data.length <= 9;
 
   const handlePurchase = async () => {
     const { ethereum } = window;
