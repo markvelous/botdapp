@@ -2,8 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-To fulfil the Blockchain Beginner course requirement for SGBT4 by P7210027 Mark Tan
-
 Snapshot of Markobot Homepage:
 
 ![github-small](src/components/img/markobot_home.png)
